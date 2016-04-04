@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<!--  This is the information of your facebook app-->
+  <key>CFBundleURLTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <!--prefix your facebook appId with 'fb' and put it here-->
+        <string>fb1000281266718513</string>
+      </array>
+    </dict>
+  </array>
+  <key>FacebookAppID</key>
+  <!--your facebook appId-->
+  <string>1000281266718513</string>
+  <key>FacebookDisplayName</key>
+  <!--your facebook app's display name-->
+  <string>AakashTestApp</string>
+<!--  facebook app information end-->
+
+<!--This enables your app to open facebook login dailogue for user to enter login details-->
+<key>LSApplicationQueriesSchemes</key>
+<array>
+  <string>fbapi</string>
+  <string>fb-messenger-api</string>
+  <string>fbauth2</string>
+  <string>fbshareextension</string>
+</array>
+<!--login dailogue opener end-->
+
+<!--white listing the facebook domain from app transport security-->
+<!--you will only need this if you compile your app with ios 9.0-->
+<!--ios 9.0 introduced higher internet security features so you will-->
+<!--need to whitelist facebook domain for the app to use these features-->
+<key>NSAppTransportSecurity</key>
+<dict>
+  <key>NSExceptionDomains</key>
+  <dict>
+    <key>facebook.com</key>
+    <dict>
+      <key>NSIncludesSubdomains</key> <true/>
+      <key>NSThirdPartyExceptionRequiresForwardSecrecy</key> <false/>
+    </dict>
+    <key>fbcdn.net</key>
+    <dict>
+      <key>NSIncludesSubdomains</key> <true/>
+      <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>  <false/>
+    </dict>
+    <key>akamaihd.net</key>
+    <dict>
+      <key>NSIncludesSubdomains</key> <true/>
+      <key>NSThirdPartyExceptionRequiresForwardSecrecy</key> <false/>
+    </dict>
+  </dict>
+</dict>
+<!--white listing facebook domain end-->
+
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+  <key>NSAppTransportSecurity</key>
+  <dict>
+    <!--See http://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/ -->
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+  </dict>
+</dict>
+</plist>

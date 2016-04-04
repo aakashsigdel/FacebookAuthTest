@@ -1,0 +1,59 @@
+1> In your react-native app do:
+  - npm install --save react-native-fbsdkcore
+  - npm install --save react-native-fbsdklogin
+  to install fbsdkcore and fbsdklogin packages
+
+2> do rnpm link to link the packages to xcode
+  - rnpm link
+
+3> In your Facebook app on developers.facebook.com
+    - go to Settings
+    - add the Contact Email and Display Name if you haven't already
+    - Add Platform > iOS
+    - Add the Bundle ID of your app which can be found in xcode under General tab
+    - Enable Single Sign On
+    - Hit Save
+
+4> Go to App Review in your facebook app on developers.facebook.com
+    - Select Yes under 'Make AakashTestApp public'
+
+5> Download the FacebookSDk from https://origincache.facebook.com/developers/resources/?id=facebook-ios-sdk-current.zip
+    - Unzip the archive to ~/Documents/FacebookSDK
+    - Open ~/Documents/FacebookSDK in finder
+    - Create Frameworks Group in Project Navigator in your project in xcode.
+    - Drag the FBSDKCoreKit.framework to Frameworks in Project Navigator
+    - Choose Create groups for any added folders
+    - Deselect Copy items into destination group's folder
+    - In Build Settings search for 'Framework search path'
+    - In framework search path add the path ~/Documents/FacebookSDK
+
+6> Right click the Info.plist > Open as > Source Code
+    - I have added the code to the the file and commented it where ever necessary
+
+7> Open AppDelegate.m
+    - I have added the following code to the file and commented where necessary
+
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  [[FBSDKApplicationDelegate sharedInstance] application:application
+      didFinishLaunchingWithOptions:launchOptions];
+        // Add any custom logic here.
+          return YES;
+    }
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+  BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                openURL:url
+                                                      sourceApplication:sourceApplication
+                                                             annotation:annotation
+                  ];
+  // Add any custom logic here.
+  return handled;
+}
+
+
+
+8> Now you can import the LoginManager from react-native-fbsdk and use it as necessary
+  - I have added a sample code in index.ios.js
